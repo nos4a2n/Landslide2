@@ -24,7 +24,7 @@
 	    android:padding="10dp" >
 
 		<ImageButton
-		    android:id="@+id/imageButton1"
+		    android:id="@+id/btnReport"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:background="#6E6E6E"
@@ -34,7 +34,7 @@
 		    android:src="@drawable/sendreportlarge" />
 
 		<ImageButton
-		    android:id="@+id/imageButton2"
+		    android:id="@+id/btnReportList"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:background="#6E6E6E"
@@ -44,7 +44,7 @@
 		    android:src="@drawable/viewreport" />
 
 		<ImageButton
-		    android:id="@+id/imageButton3"
+		    android:id="@+id/btnMap"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:background="#6E6E6E"
