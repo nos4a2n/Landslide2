@@ -11,12 +11,10 @@ import org.json.JSONObject;
 
 public class ReportFunctions {
 
-	// { user: "Jess", lat: 3.126547, lng: 101.657825, datetimestamp:
-	// now.getTime() }
-
 	JSONParser jsonParser;
 
 	private static String reportUrl = "http://idmstest.ueuo.com/android_report_api/";
+	private static String sendUrl = "http://idmstest.ueuo.com/idms-alert.php";
 
 	private static String send_report_tag = "send";
 	private static String view_report_tag = "view";
@@ -26,10 +24,10 @@ public class ReportFunctions {
 		jsonParser = new JSONParser();
 	}
 
-	public JSONObject sendReport(String uID, String lat, String lng, String msg) {
+	public JSONObject sendReport(String uID, String lat, String lng, String msg, String image_name) {
 
 		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String formattedDate = sdf.format(date);
 
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -39,8 +37,9 @@ public class ReportFunctions {
 		params.add(new BasicNameValuePair("lng", lng));
 		params.add(new BasicNameValuePair("timestamp", formattedDate));
 		params.add(new BasicNameValuePair("msg", msg));
+		params.add(new BasicNameValuePair("image_name", image_name));
 		// getting JSON Object
-		JSONObject json = jsonParser.getJSONFromUrl(reportUrl, params);
+		JSONObject json = jsonParser.getJSONFromUrl(sendUrl, params);
 		// return json
 		return json;
 	}

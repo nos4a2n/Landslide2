@@ -12,6 +12,8 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -47,7 +49,7 @@ public class ReportListActivity extends ListActivity {
 					String x = "" + i;
 					try {
 						JSONObject record = data.getJSONObject(x);
-						recordText = "Report " + (i + 1) + " = "
+						recordText = "Report = "
 								+ record.getString("time").toString();
 						dataHolder.add(recordText);
 						Log.d("tester", recordText);
@@ -78,11 +80,14 @@ public class ReportListActivity extends ListActivity {
 		String x = "" + position;
 		try {
 			JSONObject record = data.getJSONObject(x);
+			Spanned message = Html.fromHtml(record.getString("msg"));
+			String msg = message.toString();
 			recordText = "Report Details:\nReport ID = "
 					+ record.getString("rid").toString() + "\nDate and Time = "
 					+ record.getString("time").toString() + "\nLatitude = "
 					+ record.getString("lat").toString() + "\nLongitude = "
-					+ record.getString("lng").toString();
+					+ record.getString("lng").toString() + "\nMessage = "
+					+ msg;
 			Log.d("tester", recordText);
 
 			AlertDialog.Builder builder = new AlertDialog.Builder(

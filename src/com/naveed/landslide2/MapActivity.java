@@ -78,9 +78,6 @@ public class MapActivity extends Activity implements OnClickListener,
 		if (initMap()) {
 			mLocationClient = new LocationClient(this, this, this);
 			mLocationClient.connect();
-			// updatePlaces();
-			// Toast.makeText(this, "Map has been loaded!",
-			// Toast.LENGTH_SHORT).show();
 		} else {
 			Toast.makeText(this, "Map could not be loaded!", Toast.LENGTH_SHORT)
 					.show();
@@ -102,7 +99,6 @@ public class MapActivity extends Activity implements OnClickListener,
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}

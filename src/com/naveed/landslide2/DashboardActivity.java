@@ -20,13 +20,9 @@ public class DashboardActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		/**
-		 * Dashboard Screen for the application
-		 * */
-		// Check login status in database
 		userFunctions = new UserFunctions();
 		if (userFunctions.isUserLoggedIn(getApplicationContext())) {
-			// user already logged in show databoard
+
 			setContentView(R.layout.dashboard);
 			btnLogout = (Button) findViewById(R.id.btnLogout);
 			btnReport = (ImageButton) findViewById(R.id.btnReport);
@@ -42,7 +38,6 @@ public class DashboardActivity extends Activity {
 							LoginActivity.class);
 					login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					startActivity(login);
-					// Closing dashboard screen
 					finish();
 				}
 			});
@@ -82,8 +77,6 @@ public class DashboardActivity extends Activity {
 				}
 			});
 
-			// This is where the rest of the stuff go
-
 			String wlcm = "";
 			TextView welcome;
 
@@ -96,12 +89,10 @@ public class DashboardActivity extends Activity {
 			welcome.setText("Welcome " + wlcm);
 
 		} else {
-			// user is not logged in show login screen
 			Intent login = new Intent(getApplicationContext(),
 					LoginActivity.class);
 			login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(login);
-			// Closing dashboard screen
 			finish();
 		}
 	}
