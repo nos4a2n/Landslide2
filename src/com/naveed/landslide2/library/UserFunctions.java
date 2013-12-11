@@ -17,6 +17,7 @@ public class UserFunctions {
 	// use http://10.0.2.2/ to connect to your localhost ie http://localhost/
 	private static String loginURL = "http://idmstest.ueuo.com/android_login_api/";
 	private static String registerURL = "http://idmstest.ueuo.com/android_login_api/";
+	
 
 	private static String login_tag = "login";
 	private static String register_tag = "register";

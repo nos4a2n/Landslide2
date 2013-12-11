@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
@@ -80,32 +81,11 @@ public class ReportListActivity extends ListActivity {
 		String x = "" + position;
 		try {
 			JSONObject record = data.getJSONObject(x);
-			Spanned message = Html.fromHtml(record.getString("msg"));
-			String msg = message.toString();
-			recordText = "Report Details:\nReport ID = "
-					+ record.getString("rid").toString() + "\nDate and Time = "
-					+ record.getString("time").toString() + "\nLatitude = "
-					+ record.getString("lat").toString() + "\nLongitude = "
-					+ record.getString("lng").toString() + "\nMessage = "
-					+ msg;
-			Log.d("tester", recordText);
+			String rid = record.getString("rid").toString();
+			Intent details = new Intent(ReportListActivity.this, ReportDetails.class);
+			details.putExtra("rid", rid);
+			startActivity(details);
 
-			AlertDialog.Builder builder = new AlertDialog.Builder(
-					ReportListActivity.this);
-			builder.setMessage(recordText);
-			builder.setCancelable(false);
-			builder.setNeutralButton("OK",
-					new DialogInterface.OnClickListener() {
-
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							// TODO Auto-generated method stub
-							dialog.cancel();
-						}
-					});
-
-			AlertDialog alert = builder.create();
-			alert.show();
 
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

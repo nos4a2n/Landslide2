@@ -15,9 +15,12 @@ public class ReportFunctions {
 
 	private static String reportUrl = "http://idmstest.ueuo.com/android_report_api/";
 	private static String sendUrl = "http://idmstest.ueuo.com/idms-alert.php";
-
+	
+	
+	
 	private static String send_report_tag = "send";
 	private static String view_report_tag = "view";
+	private static String view_single_tag = "viewSingle";
 
 	// constructor
 	public ReportFunctions() {
@@ -49,6 +52,17 @@ public class ReportFunctions {
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("tag", view_report_tag));
 		params.add(new BasicNameValuePair("uid", uID));
+		// getting JSON Object
+		JSONObject json = jsonParser.getJSONFromUrl(reportUrl, params);
+		// return json
+		return json;
+	}
+	
+	public JSONObject viewSingleReport(String rID) {
+
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		params.add(new BasicNameValuePair("tag", view_single_tag));
+		params.add(new BasicNameValuePair("rid", rID));
 		// getting JSON Object
 		JSONObject json = jsonParser.getJSONFromUrl(reportUrl, params);
 		// return json

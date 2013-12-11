@@ -8,6 +8,7 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 
 import org.json.JSONArray;
@@ -146,7 +147,13 @@ public class ReportActivity extends Activity implements
 				// TODO Auto-generated method stub
 				String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
 						.format(new Date());
-				String uuid = UUID.randomUUID().toString();
+				char[] chars = "abcdefghijklmnopqrstuvwxyzABSDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
+				Random r = new Random(System.currentTimeMillis());
+				char[] id = new char[8];
+				for (int i = 0;  i < 8;  i++) {
+				    id[i] = chars[r.nextInt(chars.length)];
+				}
+				String uuid =  id.toString();
 				imageFileName = JPEG_FILE_PREFIX + timeStamp + "_" + uid + "_" + uuid + JPEG_FILE_SUFFIX;
 				File file = new File(Environment.getExternalStorageDirectory()
 						.getPath() + FOLDER_NAME + imageFileName);

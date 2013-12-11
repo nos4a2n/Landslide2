@@ -194,7 +194,7 @@ public class MapActivity extends Activity implements OnClickListener,
 			try {
 				// parse JSON
 
-				// create JSONObject, pass stinrg returned from doInBackground
+				// create JSONObject, pass string returned from doInBackground
 				JSONObject resultObject = new JSONObject(result);
 				// get "results" array
 				JSONArray placesArray = resultObject.getJSONArray("results");

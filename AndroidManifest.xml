@@ -58,6 +58,11 @@
             android:label="IDMS - Report List"
             android:name=".ReportListActivity"></activity>
         
+        <!--  Report Details Activity -->
+        <activity
+            android:label="IDMS - Report Details"
+            android:name=".ReportDetails"></activity>
+        
          <!--  Map Activity -->
         <activity
             android:label="IDMS - Report List"
