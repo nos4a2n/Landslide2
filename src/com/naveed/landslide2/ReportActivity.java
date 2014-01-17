@@ -55,7 +55,7 @@ public class ReportActivity extends Activity implements
 	String message = "";
 	String uid = "";
 	String pathToOurFile = "";
-	TextView currLocation, currImage;
+	TextView currLocation, currImage, status;
 	ImageView ivPreview;
 	String imageFileName = "";
 	
@@ -81,6 +81,7 @@ public class ReportActivity extends Activity implements
 		currImage = (TextView) findViewById(R.id.tvPictureName);
 		cameraBtn = (ImageButton) findViewById(R.id.btnCamera);
 		ivPreview = (ImageView) findViewById(R.id.ivPreview);
+		status = (TextView) findViewById(R.id.tvStatus);
 
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
@@ -95,6 +96,8 @@ public class ReportActivity extends Activity implements
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
+				
+				
 				File f = new File(pathToOurFile);
 				if(f.exists()){
 					new Thread(new Runnable() {
@@ -103,9 +106,10 @@ public class ReportActivity extends Activity implements
 
 						}
 					}).start();
+					
 				}
 				
-
+				
 				Location lastLoc = mLocationClient.getLastLocation();
 
 				// create LatLng

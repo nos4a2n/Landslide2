@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory>
+        <EditTextPreference android:title="Homepage" android:summary="Set Your Homepage" android:key="homepagekey"/>
+    </PreferenceCategory>
+    <PreferenceCategory>
+        <EditTextPreference android:title="Name" android:summary="Enter Your User Name" android:key="usernamekey"/>
+    </PreferenceCategory>
+    
+
+</PreferenceScreen>

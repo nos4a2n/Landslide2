@@ -297,7 +297,7 @@ public class MapActivity extends Activity implements OnClickListener,
 					+ lat
 					+ ","
 					+ lng
-					+ "&radius=2000&sensor=true"
+					+ "&radius=4000&sensor=true"
 					+ "&types=police"
 					+ "&key=AIzaSyAcyn2epzlgrS4DWvVhMYSukgWkE5WSrDw";// API KEY
 
@@ -313,7 +313,7 @@ public class MapActivity extends Activity implements OnClickListener,
 					+ lat
 					+ ","
 					+ lng
-					+ "&radius=2000&sensor=true"
+					+ "&radius=4000&sensor=true"
 					+ "&types=hospital"
 					+ "&key=AIzaSyAcyn2epzlgrS4DWvVhMYSukgWkE5WSrDw";// API KEY
 			new GetPlaces().execute(placesSearchStr);
